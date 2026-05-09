@@ -9,6 +9,7 @@ hi def link boltBuiltin          Function
 hi def link boltConstant         Constant
 hi def link boltDeferDecorator   PreProc
 hi def link boltDecorator        PreProc
+hi def link boltFunctionCall     Function
 hi def link boltFunctionName     Function
 hi def link boltClassName        Type
 hi def link boltParen            Operator

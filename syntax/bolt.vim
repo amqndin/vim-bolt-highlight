@@ -37,6 +37,11 @@ syn keyword boltControlKeyword  not is and or
 syn match   boltDecorator       /^\s*@\k\+/
 
 " ============================================================
+" Python Function Calls
+" ============================================================
+syn match   boltFunctionCall    /\k\+\(\.\k\+\)*\ze\s*(/
+
+" ============================================================
 " Python Strings
 " ============================================================
 " Single-quoted strings with optional f-string prefix
