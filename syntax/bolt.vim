@@ -33,14 +33,15 @@ syn keyword boltControlKeyword  if else elif for while try except finally with
 syn keyword boltControlKeyword  return yield raise pass break continue global nonlocal
 syn keyword boltControlKeyword  not is and or
 
+" NOTE: @defer has dedicated group below (later def wins for @defer)
 syn match   boltDecorator       /^\s*@\k\+/
 
 " ============================================================
 " Python Strings
 " ============================================================
 " Single-quoted strings with optional f-string prefix
-syn region  boltString          start=+\%([fF]\)\='+ end=+'+
-syn region  boltString          start=+\%([fF]\)\="+ end=+"+
+syn region  boltString          start=+\%([fF]\)\='+ skip=+\\'+ end=+'+
+syn region  boltString          start=+\%([fF]\)\="+ skip=+\\"+ end=+"+
 
 " Raw strings
 syn region  boltRawString       start=+\%([rR]\)'+ end=+'+
@@ -48,17 +49,17 @@ syn region  boltRawString       start=+\%([rR]\)"+ end=+"+
 
 " Triple-quoted strings (f-string variants too)
 " Defined after single/raw so last-defined region priority wins for ''' and """
-syn region  boltTripleString    start=+\%([fF]\)\="""+ end=+"""+
-syn region  boltTripleSingle    start=+\%([fF]\)\='''+ end=+'''+
+syn region  boltTripleString    start=+\%([fF]\)\="""+ end=+"""+ contains=NONE
+syn region  boltTripleSingle    start=+\%([fF]\)\='''+ end=+'''+ contains=NONE
 
 " ============================================================
 " Python Builtins
 " ============================================================
 syn keyword boltBuiltin         print len range int str float bool list dict set tuple
-syn keyword boltBuiltin         isinstance getattr setattr hasattr type super
+syn keyword boltBuiltin         getattr setattr hasattr type super
 syn keyword boltBuiltin         zip map filter sorted reversed enumerate open
 syn keyword boltBuiltin         min max sum any all abs round input next iter
-syn keyword boltBuiltin         repr chr ord hex oct bin
+syn keyword boltBuiltin         chr ord hex oct bin
 syn keyword boltBuiltin         isinstance issubclass callable dir vars id hash
 syn keyword boltBuiltin         object property staticmethod classmethod
 syn keyword boltBuiltin         repr ascii format bytes bytearray memoryview frozenset
@@ -125,6 +126,7 @@ syn match   boltUnpackingOp     /\*\{1,2}\ze\%([\[{("'a-zA-Z_]\)/
 " YAML Block Elements
 " Indented key:value pairs and list items from Bolt's YAML blocks
 " ============================================================
+" NOTE: negative lookahead must stay in sync with boltControlKeyword above
 syn match   boltYAMLKey         /^\s*\%(if\|else\|elif\|for\|while\|try\|except\|finally\|with\|return\|yield\|raise\|pass\|break\|continue\|global\|nonlocal\|not\|is\|and\|or\|def\|class\|from\|import\)\@![a-zA-Z_]\w*\ze\s*:/  skipwhite
 syn match   boltYAMLListItem    /^\s*-\s\+/                skipwhite
 
@@ -140,6 +142,8 @@ syn match   boltAssignment      /^\s*\k\+\(\.\k\+\)*\s*=\ze[^=]/     skipwhite n
 
 " Placeholder for list/dict literals after assignment
 " (covered by boltNumber, boltString, etc)
+
+syn sync fromstart
 
 " ============================================================
 " Highlight Links
