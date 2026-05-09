@@ -16,7 +16,7 @@ runtime syntax/mcfunction/highlight.vim
 " Chain entry for indented commands (Bolt YAML/Python blocks).
 " mcCommand is contained, only reachable via nextgroup chain.
 " This bridges indented lines that mcOptionalSlash (anchored to ^) misses.
-syn match mcIndentPrefix /^\s\+/ nextgroup=mcCommand
+syn match mcIndentPrefix /^\s\+/ nextgroup=mcCommand,boltImplicitExecute
 
 " ============================================================
 " Python Top-Level Keywords (line-start anchored)
@@ -29,7 +29,9 @@ syn keyword boltClassKeyword    class                   skipwhite nextgroup=bolt
 syn match   boltClassName       /\k\+/                  contained
 
 syn keyword boltImportKeyword   from import
+syn keyword boltControlKeyword  if else elif for while try except finally with
 syn keyword boltControlKeyword  return yield raise pass break continue global nonlocal
+syn keyword boltControlKeyword  not is and or
 
 syn match   boltDecorator       /^\s*@\k\+/
 
@@ -111,7 +113,7 @@ hi def link boltResourceRef     boltRelativePath
 " Both-highlighted: these also match Python keywords in some cases,
 " but execute context (line start) prioritizes cleanly
 " ============================================================
-syn match   boltImplicitExecute /^\s*\zs\%(as\|at\|if\|unless\|positioned\|rotated\|anchored\|align\|facing\|in\|store\|run\|expand\)\>/
+syn match   boltImplicitExecute /\s*\zs\%(as\|at\|unless\|positioned\|rotated\|anchored\|align\|facing\|run\|expand\)\>/ skipwhite nextgroup=mcSelectorExecute,mcExecuteCond,mcExecuteKeyword,mcCommand,mcExecuteStoreWhere,mcExecuteFacingEntityKeyword,mcExecuteAnchoredValue,mcExecuteAlignValue
 hi def link boltImplicitExecute mcExecuteKeyword
 
 " ============================================================
@@ -123,7 +125,7 @@ syn match   boltUnpackingOp     /\*\{1,2}\ze\%([\[{("'a-zA-Z_]\)/
 " YAML Block Elements
 " Indented key:value pairs and list items from Bolt's YAML blocks
 " ============================================================
-syn match   boltYAMLKey         /^\s*[a-zA-Z_]\w*\ze\s*:/  skipwhite
+syn match   boltYAMLKey         /^\s*\%(if\|else\|elif\|for\|while\|try\|except\|finally\|with\|return\|yield\|raise\|pass\|break\|continue\|global\|nonlocal\|not\|is\|and\|or\|def\|class\|from\|import\)\@![a-zA-Z_]\w*\ze\s*:/  skipwhite
 syn match   boltYAMLListItem    /^\s*-\s\+/                skipwhite
 
 " ============================================================
@@ -134,7 +136,7 @@ syn match   boltComment /^\s*#.*$/ contains=@Spell
 " ============================================================
 " Variable Assignment (top-level)
 " ============================================================
-syn match   boltAssignment      /^\s*\k\+\s*=\ze[^=]/     skipwhite nextgroup=boltString,boltNumber,boltTripleString,boltRawString
+syn match   boltAssignment      /^\s*\k\+\(\.\k\+\)*\s*=\ze[^=]/     skipwhite nextgroup=boltString,boltNumber,boltTripleString,boltRawString
 
 " Placeholder for list/dict literals after assignment
 " (covered by boltNumber, boltString, etc)
