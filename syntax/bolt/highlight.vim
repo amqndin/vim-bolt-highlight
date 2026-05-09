@@ -15,6 +15,7 @@ hi def link boltParen            Operator
 
 hi def link boltString           String
 hi def link boltTripleString     String
+hi def link boltTripleSingle     String
 hi def link boltRawString        String
 
 hi def link boltNumber           Number

@@ -36,10 +36,6 @@ syn match   boltDecorator       /^\s*@\k\+/
 " ============================================================
 " Python Strings
 " ============================================================
-" Triple-quoted strings (f-string variants too)
-syn region  boltTripleString    start=+\%([fF]\)\="""+ end=+"""+
-syn region  boltTripleString    start=+\%([fF]\)\='''+ end=+'''+
-
 " Single-quoted strings with optional f-string prefix
 syn region  boltString          start=+\%([fF]\)\='+ end=+'+
 syn region  boltString          start=+\%([fF]\)\="+ end=+"+
@@ -47,6 +43,11 @@ syn region  boltString          start=+\%([fF]\)\="+ end=+"+
 " Raw strings
 syn region  boltRawString       start=+\%([rR]\)'+ end=+'+
 syn region  boltRawString       start=+\%([rR]\)"+ end=+"+
+
+" Triple-quoted strings (f-string variants too)
+" Defined after single/raw so last-defined region priority wins for ''' and """
+syn region  boltTripleString    start=+\%([fF]\)\="""+ end=+"""+
+syn region  boltTripleSingle    start=+\%([fF]\)\='''+ end=+'''+
 
 " ============================================================
 " Python Builtins
