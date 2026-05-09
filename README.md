@@ -19,6 +19,29 @@ to your .vimrc
 This plugin has a handful of settings to tweak how it works, including the ability to change the version of Minecraft that it highlights for.
 You can check out these setting in the [wiki](https://github.com/rubixninja314/vim-mcfunction/wiki/Configuration).
 
+## Bolt Support
+
+This plugin also provides syntax highlighting for [Bolt](https://github.com/mcbeet/bolt), a hybrid mcfunction + Python language.
+
+`.bolt` files are detected automatically. All mcfunction highlighting works in Bolt files, plus:
+
+- **Python keywords**: `def`, `class`, `from`, `import`, `return`, `yield`, `raise`, `pass`, `break`, `continue`, `global`, `nonlocal`
+- **Python builtins**: `print`, `len`, `range`, `int`, `str`, `float`, `list`, `dict`, `set`, `tuple`, and more
+- **Python strings**: single/double quoted, raw (`r"..."`) and f-string (`f"..."`) variants, triple-quoted (`"""..."""`)
+- **Python constants**: `True`, `False`, `None`, `true`, `false` (YAML booleans)
+- **Decorators**: `@decorator` syntax
+- **`raw` command**: verbatim escape hatch (`raw setblock ~ ~ ~ stone`)
+- **Bolt keywords**: `macro`, `memo`, `@defer`, `require`
+- **Resource modifiers**: `append`, `prepend`, `merge`
+- **Resource keywords**: `function`, `function_tag`, `block_tag`, `item_tag`, `entity_tag`, `loot_table`, `predicate`
+- **`command = "..."`** macro parameter syntax
+- **`$(...)` and `${...}`** interpolation
+- **Relative paths**: `./`, `~/` path prefixes
+- **Implicit execute**: `as`, `at`, `if`, `unless`, `positioned`, `rotated`, `anchored`, `align`, `facing`, `in`, `store`, `run`, `expand` at line start
+- **Unpacking operators**: `*list`, `**dict`
+- **YAML blocks**: key: value pairs and `- ` list items in indented blocks
+- **Variable assignment**: top-level `name = value`
+
 ## Final Notes / Warnings
 
 As of right now, sounds (used by `/playsound` and `/stopsound`) and recipes (used by `/recipe`) are not fully implemented.

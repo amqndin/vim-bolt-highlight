@@ -601,7 +601,7 @@ syn keyword mcExecuteKeyword            contained skipwhite nextgroup=mcDoubleSp
 call s:addInstance('Rotation',"Execute","mcExecuteKeyword")
 
 " Execute run
-syn keyword mcExecuteKeyword            contained skipwhite nextgroup=mcDoubleSpace,mcCommand                                   run
+syn keyword mcExecuteKeyword            contained skipwhite nextgroup=mcDoubleSpace,mcCommand                                   run expand
 
 " Execute store
 """""""""""""""""""""""""
@@ -760,7 +760,7 @@ call s:addInstance('NsItem','Give','mcUInt')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syn keyword mcCommand help contained skipwhite nextgroup=mcDoubleSpace,mcUInt,mcHelpCommand
 
-syn keyword mcHelpCommand contained advancement bossbar clear clone data datapack debug defaultgamemode difficulty effect enchant execute experience fill forceload function gamemode gamerule give help kill list locate loot me msg paraticle playsound recipe reload replaceitem say scoreboard seed setblock setworldspawn spawnpoint spreadplayers stopsound summon tag team teleport teammsg tell tellraw time title tp trigger w weather worldborder xp
+syn keyword mcHelpCommand contained advancement bossbar clear clone data datapack debug defaultgamemode difficulty effect enchant execute experience fill forceload function gamemode gamerule give help kill list locate loot me msg paraticle playsound raw recipe reload replaceitem say scoreboard seed setblock setworldspawn spawnpoint spreadplayers stopsound summon tag team teleport teammsg tell tellraw time title tp trigger w weather worldborder xp
 if s:atLeastVersion('18w43a')
         if s:atLeastVersion('18w45a')
                 syn keyword mcHelpCommand contained loot
