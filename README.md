@@ -1,6 +1,12 @@
-# vim-mcfunction-highlighter
-A powerful syntax highlighter for mcfunction (the format for Minecraft datapack functions) in vim.
-Instead of simply highlighting a few keywords, it aims to tell you exactly how the game will interpret the commands in order to greatly reduce development time.
+> **Vibecoded.** Vimscript + regex is a miserable way to spend human
+> attention. Every line in this repo was written by an LLM because I
+> value my sanity.
+
+# vim-bolt-highlight
+A syntax highlighter for mcfunction (Minecraft datapack functions) and
+[Bolt](https://github.com/mcbeet/bolt) (hybrid mcfunction + Python) in vim.
+Beyond simple keyword highlighting, it aims to surface exactly how the game
+will interpret each command to reduce development time.
 
 <img width="1920" height="1048" alt="vim-mcfunction-highlighter-test" src="https://github.com/user-attachments/assets/8f60ed33-1ee0-4c0b-b9fd-361ccbd2e759" />
 
