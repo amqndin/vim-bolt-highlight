@@ -1,0 +1,24 @@
+# syntax demonstration
+
+def fibonacci(n):
+    result = []
+    a = 0
+    b = 1
+    for _ in range(n):
+        result.append(a)
+        temp = a + b
+        a = b
+        b = temp
+    return result
+
+def spawn_fib_chickens(n):
+    fibs = fibonacci(n)
+    for fib in fibs:
+        summon chicken ~fib ~ ~
+        tellraw @a f"the interval is {fib}"
+
+function test:test:
+  execute positioned ~ ~100 ~:
+    spawn_fib_chickens(15)
+
+  as @a at @s if block ~ ~ ~ air run say hello world
