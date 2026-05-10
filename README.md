@@ -26,17 +26,8 @@ vim.pack.add({
 
 ```lua
 {
-  dir = "/path/to/vim-bolt-highlight",
-  opts = {},
+  "amqndin/vim-bolt-highlight", opts = {}
 }
-```
-</details>
-
-<details>
-<summary><b>vim-plug</b></summary>
-
-```vim
-Plug 'quellerz/vim-mcfunction-highlighter'
 ```
 </details>
 
