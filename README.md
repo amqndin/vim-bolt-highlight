@@ -7,7 +7,7 @@ A syntax highlighter for mcfunction (Minecraft datapack functions) and
 Beyond simple keyword highlighting, it aims to surface exactly how the game
 will interpret each command to reduce development time.
 
-<img width="1920" height="1048" alt="vim-mcfunction-highlighter-test" src="https://github.com/user-attachments/assets/8f60ed33-1ee0-4c0b-b9fd-361ccbd2e759" />
+![Showcase](./assets/showcase.png)
 
 ## Installation
 
