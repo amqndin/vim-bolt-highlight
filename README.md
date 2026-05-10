@@ -1,6 +1,5 @@
-> **Vibecoded.** Vimscript + regex is a miserable way to spend human
-> attention. Every line in this repo was written by an LLM because I
-> value my sanity.
+> **Vibecoded.** This is a fork of [RubixTheSlime/vim-mcfunction](https://github.com/RubixTheSlime/vim-mcfunction)
+> with bolt support added on top, written by an LLM
 
 # vim-bolt-highlight
 A syntax highlighter for mcfunction (Minecraft datapack functions) and
@@ -12,18 +11,34 @@ will interpret each command to reduce development time.
 
 ## Installation
 
-To install using [vim-plug](https://github.com/junegunn/vim-plug), add
-```
-call plug#begin('~/.vim/plugged')
+<details>
+<summary><b>vim.pack</b> (Neovim 0.12+ built-in)</summary>
 
+```lua
+vim.pack.add({
+  'https://github.com/rubixninja314/vim-mcfunction-highlighter',
+})
+```
+</details>
+
+<details>
+<summary><b>lazy.nvim</b></summary>
+
+```lua
+{
+  dir = "/path/to/vim-bolt-highlight",
+  opts = {},
+}
+```
+</details>
+
+<details>
+<summary><b>vim-plug</b></summary>
+
+```vim
 Plug 'quellerz/vim-mcfunction-highlighter'
-
-call plug#end()
 ```
-to your .vimrc
-
-This plugin has a handful of settings to tweak how it works, including the ability to change the version of Minecraft that it highlights for.
-You can check out these setting in the [wiki](https://github.com/rubixninja314/vim-mcfunction/wiki/Configuration).
+</details>
 
 ## Bolt Support
 
