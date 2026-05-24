@@ -17,8 +17,12 @@ def spawn_fib_chickens(n):
         summon chicken ~fib ~ ~
         tellraw @a f"the interval is {fib}"
 
-function test:test:
+append function_tag dpi:tick:
+  values:
+    - "dpi:main"
+
+function dpi:main:
+  spawn_fib_chickens(15)
   execute positioned ~ ~100 ~:
     spawn_fib_chickens(15)
-
   as @a at @s if block ~ ~ ~ air run say hello world

@@ -26,6 +26,7 @@ hi def link boltRawBody          String
 hi def link boltBoltKeyword      PreProc
 hi def link boltResourceModifier Keyword
 hi def link boltResourceKeyword  Type
+hi def link boltResourceName     Identifier
 hi def link boltParamEq          Operator
 
 hi def link boltInterpolation    Special

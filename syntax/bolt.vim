@@ -96,7 +96,10 @@ syn keyword boltBoltKeyword     require
 syn keyword boltResourceModifier append prepend merge skipwhite nextgroup=boltResourceKeyword
 
 " Nested resource keywords
-syn keyword boltResourceKeyword function_tag block_tag item_tag entity_tag loot_table predicate
+syn keyword boltResourceKeyword function_tag block_tag item_tag entity_tag loot_table predicate skipwhite nextgroup=boltResourceName
+
+" Resource identifiers (namespace:path)
+syn match   boltResourceName    /\k\+:\k\+\ze\s*:/ contained
 
 " command = "..." pattern (macro parameter)
 syn match   boltParamEq         /^\s*command\s*=\s*/  skipwhite nextgroup=boltString
