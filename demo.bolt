@@ -17,9 +17,13 @@ def spawn_fib_chickens(n):
         summon chicken ~fib ~ ~
         tellraw @a f"the interval is {fib}"
 
-append function_tag dpi:tick:
+append block_tag summit.booth:dpi/entities/summon:
   values:
     - "dpi:main"
+
+append function_tag dpi:tick:
+  values:
+    - "summit.booth:dpi/core/loop"
 
 function dpi:main:
   spawn_fib_chickens(15)
