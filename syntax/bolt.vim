@@ -99,7 +99,7 @@ syn keyword boltResourceModifier append prepend merge skipwhite nextgroup=boltRe
 syn keyword boltResourceKeyword function_tag block_tag item_tag entity_tag loot_table predicate skipwhite nextgroup=boltResourceName
 
 " Resource identifiers (namespace:path)
-syn match   boltResourceName    /[\w.\/-]\+:[\w.\/-]\+\ze\s*:/ contained
+syn match   boltResourceName    /[0-9A-Za-z_.\/-]\+:[0-9A-Za-z_.\/-]\+\ze\s*:/ contained
 
 " command = "..." pattern (macro parameter)
 syn match   boltParamEq         /^\s*command\s*=\s*/  skipwhite nextgroup=boltString
